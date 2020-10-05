@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string convertToString(char *a,int inicio, int size);
+string convertToString(char *a, int size);
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
         // Condicion para que revisa si se ha encontrado un espacio
         if(letra == ' ' || letra == '\0')  {
             // Manda a llamar a la funcion para convertir los caracteres a una cadena de caracteres
-            palabra.push_back(convertToString(palabras, auxInicio, auxFinal - 1));  // Se resta 1 para no contar el espacio
+            palabra.push_back(convertToString(&palabras[auxInicio], (auxFinal - 1) - auxInicio));  // Se resta 1 para no contar el espacio
 
             /* Si las palabras estan separadas por un unico espacio, enconces la variable auxiliar que indica el inicio de la palabra se
             posicionara al principio de la siguiente palabra, saltandose el espacio y ubicandose en la primera letra de la siguiente palabra*/
@@ -50,14 +50,14 @@ int main()
 }
 
 // Metodo para convertir un arreglo de caracteres a una cadena de caracteres
-string convertToString(char *a,int inicio, int size)
+string convertToString(char *a, int size)
 {
     // Declaracion de variables auxiliares
     string s = "";
-    int i = inicio;
+    int i = 0;
 
     while(i <= size)  {
-        s = s + a[i];  // Va concatenando las letras para formar una palabra
+        s = s + *(a + i);  // Va concatenando las letras para formar una palabra
         i++;
     }
 
