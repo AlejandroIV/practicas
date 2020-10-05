@@ -4,7 +4,7 @@
 
 using namespace std;
 
-string convertToString(char *a, int size);
+string convertToString(char* a, int size);
 
 int main()
 {
@@ -50,7 +50,7 @@ int main()
 }
 
 // Metodo para convertir un arreglo de caracteres a una cadena de caracteres
-string convertToString(char *a, int size)
+string convertToString(char* a, int size)
 {
     // Declaracion de variables auxiliares
     string s = "";
