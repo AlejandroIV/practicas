@@ -1,2 +1,2 @@
-# practicas
-Practicas de estructuras de datos.
+# Prácticas
+Prácticas de estructuras de datos.
