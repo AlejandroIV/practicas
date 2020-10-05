@@ -19,7 +19,7 @@ int main()
         // Condicion para que revisa si se ha encontrado un espacio
         if(letra == ' ' || letra == '\0')  {
             // Manda a llamar a la funcion para convertir los caracteres a una cadena de caracteres
-            palabra.push_back(convertToString(&palabras[auxInicio], (auxFinal - 1) - auxInicio));  // Se resta 1 para no contar el espacio
+            palabra.push_back(convertToString(&palabras[auxInicio], ((auxFinal - 1) - auxInicio)));  // Se resta 1 para no contar el espacio
 
             /* Si las palabras estan separadas por un unico espacio, enconces la variable auxiliar que indica el inicio de la palabra se
             posicionara al principio de la siguiente palabra, saltandose el espacio y ubicandose en la primera letra de la siguiente palabra*/
