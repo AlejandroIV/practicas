@@ -1,0 +1,3 @@
+Contador de palabras y Contador
+de caracteres es una herramienta que
+te permite contar la cantidad de palabras o de caracteres que posee un texto
