@@ -19,3 +19,14 @@ void caracterFinal();
  * @return vector<Palabra>
  */ 
 vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead);
+/**
+ * @brief Funcion que imprime las frecuencias de un "diccionario"
+ * @param dic Puntero a un vector de tipo "Palabra"
+ */
+void imprimeFrecuencias(vector<Palabra>* dic);
+/**
+ * @brief Funcion que regresa la suma de las frecuencias de las "Palabras" que hay en un "diccionario"
+ * @param dic Puntero a un vector de tipo "Palabra"
+ * @return int
+ */
+int sumaFrecuencias(vector<Palabra>* dic);

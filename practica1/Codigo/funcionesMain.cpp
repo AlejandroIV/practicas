@@ -1,4 +1,4 @@
-#include"funcionesMain.h"
+#include"FuncionesMain.h"
 
 void caracterFinal()
 {
@@ -155,4 +155,25 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
     }
 
     return diccionario;
+}
+
+void imprimeFrecuencias(vector<Palabra>* dic)
+{
+    // Bucle que recorrera todo el diccionario e imprimira cada palabra y su frecuencia
+    for(Palabra p : *(dic))  {
+        cout << "Palabra: " << p.getPalabra() << " - Frecuencia: " << p.getFrecuencia() << endl;
+    }
+}
+
+int sumaFrecuencias(vector<Palabra>* dic)
+{
+    // Declaracion de variable auxiliar para almacenar la suma de las frecuencias
+    int sum = 0;
+
+    // Bucle que recorrera todo el diccionario e imprimira cada palabra y su frecuencia
+    for(Palabra p : *(dic))  {
+        sum += p.getFrecuencia();
+    }
+
+    return sum;
 }
