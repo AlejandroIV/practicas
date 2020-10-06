@@ -154,10 +154,5 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
         flagAux = false;
     }
 
-    // Bucle que recorrera todo el diccionario e imprimira cada palabra y su frecuencia
-    for(Palabra p : diccionario)  {
-        cout << "Palabra: " << p.getPalabra() << " - Frecuencia: " << p.getFrecuencia() << endl;
-    }
-
     return diccionario;
 }

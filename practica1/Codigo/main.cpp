@@ -20,5 +20,10 @@ int main()
     vector<Palabra> diccionario = creaVectorFrecuencias(archivo);
     archivo.close();  // Cierra el archivo
 
+    // Bucle que recorrera todo el diccionario e imprimira cada palabra y su frecuencia
+    for(Palabra p : diccionario)  {
+        cout << "Palabra: " << p.getPalabra() << " - Frecuencia: " << p.getFrecuencia() << endl;
+    }
+
     return 0;
 }
