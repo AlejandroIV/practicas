@@ -1,6 +1,3 @@
-#include<vector>
-#include<string>
-#include<iostream>
 #include"LineaTexto.h"
 
 using namespace std;
@@ -16,7 +13,6 @@ LineaTexto::LineaTexto(char* linea)
     this->linea = linea;
 }
 
-// Metodos setter y getter
 void LineaTexto::setCharArray(char* linea)
 {
     this->linea = linea;

@@ -1,1 +1,1 @@
-g++ LineaTexto.cpp Palabra.cpp main.cpp -o 'Nombre'.exe
+g++ LineaTexto.cpp Palabra.cpp main.cpp funcionesMain.cpp -o 'Nombre'.exe
