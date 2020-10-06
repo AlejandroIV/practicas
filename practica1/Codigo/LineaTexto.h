@@ -1,13 +1,16 @@
 #pragma once
 
+#include<string>
+
 class LineaTexto
 {
     private:
-        char* charArray;
+        char* linea;
 
     public:
         LineaTexto();
-        LineaTexto(char charArray[]);
+        LineaTexto(char* linea);
+
         void setCharArray(char* charArray);
         char* getCharArray();
         char* getCharArray(int indice);

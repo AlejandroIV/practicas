@@ -8,26 +8,26 @@ using namespace std;
 // Constructores
 LineaTexto::LineaTexto()
 {
-    charArray = NULL;
+    linea = NULL;
 }
 
-LineaTexto::LineaTexto(char charArray[])
+LineaTexto::LineaTexto(char* linea)
 {
-    this->charArray = charArray;
+    this->linea = linea;
 }
 
 // Metodos setter y getter
-void LineaTexto::setCharArray(char* charArray)
+void LineaTexto::setCharArray(char* linea)
 {
-    this->charArray = charArray;
+    this->linea = linea;
 }
 
 char* LineaTexto::getCharArray()
 {
-    return charArray;
+    return linea;
 }
 
 char* LineaTexto::getCharArray(int indice)
 {
-    return charArray + indice;
+    return linea + indice;
 }

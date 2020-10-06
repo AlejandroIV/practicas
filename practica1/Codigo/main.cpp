@@ -7,29 +7,35 @@ using namespace std;
 
 int main()
 {
-    // Iniciacion de arreglo con 4 palabras
-    char arreglo[] = {"1 2 2 3 3 3 4 4 4 4 5 5 5 5 5"};
-    LineaTexto linea(arreglo);
-    // Declaracion de variables auxiliares
+    // Declaracion e iniciacion de variables auxiliares
+    int contAux = 0;
+    bool flagAux = false;
     int auxInicio = 0;  // Indicara el inicio de la palabra en el arreglo
     int auxFinal = 0;  // Indicara el fin de la palabra en el arreglo
     Palabra auxPalabra;
-    // Auxiliar para el ciclo "while"
+
+    // Iniciacion de arreglo con 4 palabras
+    char texto[] = {"Estas son cuatro palabras"};
+
+    // Instanciacion de objeto "linea"
+    LineaTexto linea(texto);
+    
+    // Auxiliar para bucle "while"
     char* auxPtrArray = linea.getCharArray();
-    // Auxiliares para el ciclo for
-    int contAux = 0;  
-    bool flagAux = false;
-    // Declaracion de un vector llamado "diccionario" que contendra las palabras y su frecuencia
+
+    // Declaracion de un vector llamado "diccionario" que almacenara las palabras y su frecuencia
     vector<Palabra> diccionario;
 
-    while((*auxPtrArray) != '\0')  {  // Cuando llega al caracter nulo (final de la palabra se sale)...
+    while((*auxPtrArray) != '\0')  {  // Cuando llega al caracter nulo (al final de la linea) se sale del bucle...
         // Condicion para que revisa si se ha encontrado un espacio
         if(auxPtrArray[0] == ' ')  {
-            // Manda a llamar a la funcion para convertir los caracteres a una cadena de caracteres
-            auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 1) - auxInicio)));  // Resta por el espacio
+            // Manda a llamar a la funcion para convertir el arreglo de caracteres a string
+            auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 1) - auxInicio)));  // Resta 1 por el espacio
 
             /* Para entender esta parte del codigo: Solo existen dos estados de las palabras, que ya esten agregadas al "diccionario"
-            o que no esten agregadas, en cualquier caso se incrementara alguna frecuencia en 1 */
+            o que no esten agregadas.
+            En caso de que ya esten agregadas al "diccionario", entonces establece su frecuencia en 1, en caso contrario,
+            incrementara su frecuencia */
 
             // Si el diccionario esta vacio, entonces agrega el primer elemento y establece su frecuencia en 1
             if(diccionario.size() == 0)  {
@@ -37,13 +43,15 @@ int main()
                 diccionario[contAux].setFrecuencia(1);
             }
             else  {
-                // Bucle para buscar si la "Palabra" es igual a alguna del "diccionario", si no para agregarla
+                // Bucle que recorrera todo el diccionario
                 for(Palabra p : diccionario)  {
+                    // Condicional para saber si alguna palabra del "diccionario" es igual a la palabra en la que vamos en la "linea"
                     if(p.esIgual(auxPalabra))  {
                         flagAux = true;  // Cambia el valor del "flag" para no continuar con la siguiente condicional
                         diccionario[contAux].incrementaFrecuencia();  // Aumenta su frecuencia
                         break;  // Sale del bucle
                     }
+                    // La ultilidad de esta variable es ir incrementando el valor del contador para irnos posicionando en cada indice del "diccionario"
                     contAux++;
                 }
                 // Si la "Palabra" no coincide con ninguna del "diccionario", entonces la agrega y establece su frecuencia en 1
@@ -69,10 +77,13 @@ int main()
         auxPtrArray++;
     }
 
-    //... por lo que falta de contar la palabra del final
+    //... por lo que falta de contar la ultima palabra
+    // Manda a llamar a la funcion para convertir el arreglo de caracteres a string
     auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 1) - auxInicio)));
-    // Bucle para buscar si la "Palabra" es igual a alguna del "diccionario", si no para agregarla
+
+    // Bucle que recorrera todo el diccionario
     for(Palabra p : diccionario)  {
+        // Condicional para saber si alguna palabra del "diccionario" es igual a la ultima palabra de la "linea"
         if(p.esIgual(auxPalabra))  {
             flagAux = true;  // Cambia el valor del "flag" para no continuar con la siguiente condicional
             diccionario[contAux].incrementaFrecuencia();  // Aumenta su frecuencia
