@@ -11,7 +11,7 @@ class LineaTexto
         LineaTexto();
         LineaTexto(char* linea);
 
-        void setCharArray(char* charArray);
+        void setCharArray(char* linea);
         char* getCharArray();
         char* getCharArray(int indice);
 };

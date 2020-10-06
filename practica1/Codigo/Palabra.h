@@ -5,7 +5,6 @@
 class Palabra
 {
     private:
-        int numElem;
         int frecuencia;
         std::string palabra;
     
@@ -17,8 +16,6 @@ class Palabra
         int getFrecuencia();
         void setPalabra(std::string palabra);
         std::string getPalabra();
-        void setNumElem(std::string palabra);
-        int getNumElem();
 
         void incrementaFrecuencia();
         std::string charArrayToString(char* a, int final);

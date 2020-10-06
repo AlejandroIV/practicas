@@ -28,29 +28,11 @@ int Palabra::getFrecuencia()
 void Palabra::setPalabra(std::string palabra)
 {
     this->palabra = palabra;
-    setNumElem(palabra);
 }
 
 std::string Palabra::getPalabra()
 {
     return palabra;
-}
-
-// Metodos setter y getter para la variable "numElem"
-void Palabra::setNumElem(std::string palabra)
-{
-    // Declaracion de variable auxiliar
-    int contAux = 0;
-    // Bucle para contar la cantidad de letras en la cadena
-    for(char c : palabra)  {
-        contAux++;
-    }
-    this->numElem = contAux;
-}
-
-int Palabra::getNumElem()
-{
-    return numElem;
 }
 
 // Metodo que incrementa la frecuencia de la "Palabra" en 1
