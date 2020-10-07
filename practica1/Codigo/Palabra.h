@@ -1,6 +1,7 @@
 #pragma once
 
 #include<string>
+#include<iostream>
 
 class Palabra
 {
@@ -58,4 +59,16 @@ class Palabra
          * @return bool
          */ 
         bool esIgual(Palabra p);
+        /**
+         * @brief Funcion que regresa true si el caracter es una letra
+         * @param l Puntero a "char"
+         * @return bool
+         */
+        bool esLetra(char* l);
+        /**
+         * @brief Funcion que regresa true si la letra es mayuscula
+         * @param l Puntero a "char"
+         * @return bool
+         */
+        bool esMayuscula(char* l);
 };
