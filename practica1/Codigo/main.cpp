@@ -21,19 +21,19 @@ int main()
         exit(1);
     }
 
-    /* Iniciacion del diccionario que almacenara "Palabras", por lo tanto, almacenara elementos que seran palabras y su frecuencia
-    para eso manda a llamar a la  */
+    // Iniciacion del diccionario que almacenara las palabras de documento y su respectiva frecuencia
     vector<Palabra> diccionario = creaVectorFrecuencias(archivoLeer);
     archivoLeer.close();  // Cierra el archivo de lectura
 
     //imprimeFrecuencias(&diccionario);
 
+    // Imprime la cantidad de palabras que hay en el "diccionario"
     cout << "Hay " << sumaFrecuencias(&diccionario) << " palabras en el diccionario" << endl;
 
     // Declaracion de variable que contendra el vinculo al archivo de escritura
     ofstream archivoEscribir;
 
-    archivoEscribir.open("palabras_frecuencias.txt", ios::out);  // Abre en modo escritura para escribir las palabras y su frecuencia
+    archivoEscribir.open("palabras_frecuencias.txt", ios::out);  // Abre el archivo en modo escritura para escribir las palabras y su frecuencia
 
     // Condicional para comprobar si se abrio el archivo de texto adecuadamente
     if(archivoEscribir.fail())  {
@@ -43,6 +43,7 @@ int main()
 
     // Bucle que se repetira mientras hayan elementos en el "diccionario"
     while(!(diccionario.empty()))  {
+        // Manda a llamar a la funcion para ir escribiendo las palabras y su frecuencia, e irlas borrando del "diccionario"
         diccionario = escribeMayor(diccionario, archivoEscribir);
     }
 

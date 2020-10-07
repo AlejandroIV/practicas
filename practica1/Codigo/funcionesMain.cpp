@@ -46,7 +46,7 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
 
         auxPtrArray = linea.getCharArray();
 
-        while((*auxPtrArray) != '\0')  {  // Cuando llega al caracter nulo (al final de la linea) se sale del bucle...
+        while((*auxPtrArray) != '\0')  {  // Cuando llega al caracter nulo (al final de la linea) se sale del bucle (sigue linea 100)...
             // Condicion para que revisa si se ha encontrado un espacio
             if(auxPtrArray[0] == ' ')  {
                 // Manda a llamar a la funcion para convertir el arreglo de caracteres a string
@@ -97,14 +97,13 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
             auxPtrArray++;
         }
         
-        //... por lo que falta de contar la ultima palabra
+        //(continuacion linea 49)... por lo que falta de contar la ultima palabra
 
         // Manda a llamar a la funcion para convertir el arreglo de caracteres a string
         auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 1) - auxInicio)));
 
         /*
-        // Cuando se agrega un salto de linea en el documento de texto, entonces la linea tendra al final un caracter nulo
-        // por lo tanto es necesario eliminar ese espacio haciendo modificaciones en la llamada al metodo "setPalabra"
+        // Codigo en caso de que haya un salto de linea antes del caracter nulo
 
         //auxPtrArray = linea.getCharArray();
         contAux = auxInicio;  // Variable que se usara en el bucle "while"
@@ -123,8 +122,6 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
             auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 2) - auxInicio)));
         }
         else  {
-            // Sino hay caracter nulo al final de la palabra, manda a llamar a la funcion con los mismos argumentos
-            // Manda a llamar a la funcion para convertir el arreglo de caracteres a string
             auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 1) - auxInicio)));
         }
         // Restaura las variables auxiliares
@@ -134,7 +131,7 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
         // Bucle que recorrera todo el diccionario
         for(Palabra p : diccionario)  {
             // Condicional para saber si alguna palabra del "diccionario" es igual a la ultima palabra de la "linea"
-            if(p.esIgual(auxPalabra))  {     // no son iguales por el caracter nulo
+            if(p.esIgual(auxPalabra))  {
                 flagAux = true;  // Cambia el valor del "flag" para no continuar con la siguiente condicional
                 diccionario[contAux].incrementaFrecuencia();  // Aumenta su frecuencia
                 break;  // Sale del bucle
@@ -170,11 +167,12 @@ int sumaFrecuencias(vector<Palabra>* dic)
     // Declaracion de variable auxiliar para almacenar la suma de las frecuencias
     int sum = 0;
 
-    // Bucle que recorrera todo el diccionario e imprimira cada palabra y su frecuencia
+    // Bucle que recorrera todo el diccionario y sumara la frecuencia de cada palabra
     for(Palabra p : *(dic))  {
         sum += p.getFrecuencia();
     }
 
+    // Regresa el total de palabras que hay en el "diccionario"
     return sum;
 }
 
@@ -187,13 +185,13 @@ vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite)
 
     // Bucle que recorrera todo el "diccionario"
     for(Palabra p : dic)  {
-        // Ejecutara las sentencias del cuerpo de la condicional si la frecuencia de la palabra es mayor a la anterior
+        // Condicional para saber si la frecuencia de la palabra en la que vamos en el bucle es mayor a la frecuencia mayor visto hasta el momento
         if(p.getFrecuencia() > auxMayor)  {
             auxMayor = p.getFrecuencia();  // El valor mayor visto hasta el momento
             auxIndice = auxRecorrido;  // El indice de la palabra con la frecuencia mayor vista hasta el momento
         }
 
-        // Es para irnos ubicando en cada indice del "diccionario"
+        // Para irnos ubicando en cada indice del "diccionario"
         auxRecorrido++;
     }
 
@@ -203,6 +201,6 @@ vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite)
     // Elimina el elemento que se agrego al documento de texto
     dic.erase(dic.begin() + auxIndice);
 
-    // Regresa el "diccionario" con un caracter menos
+    // Regresa el "diccionario" con un elemento menos
     return dic;
 }
