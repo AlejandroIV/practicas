@@ -14,6 +14,9 @@ while True:
 # Declares a dictionary to hold the "keys"
 dctKeys = dict()
 
+# Declares a list to hold the dictionary values to sort them later
+lstKeys = list()
+
 # Loop to read all the lines in the file
 for line in fh:
     line = line.split()
@@ -21,4 +24,10 @@ for line in fh:
     for word in line:
         dctKeys[word] = dctKeys.get(word, 0) + 1
 
-print(f"\n{dctKeys}")
+# Loop to assign the dictionary values to the list
+for key, value in dctKeys.items():
+    lstKeys.append((value, key))
+
+lstKeys.sort(reverse = True)
+
+print(f"\n{lstKeys}")
