@@ -4,6 +4,7 @@
 #include<vector>
 #include<fstream>
 #include<cstring>
+#include <algorithm>
 #include"LineaTexto.h"
 #include"Palabra.h"
 
@@ -30,3 +31,11 @@ void imprimeFrecuencias(vector<Palabra>* dic);
  * @return int
  */
 int sumaFrecuencias(vector<Palabra>* dic);
+/**
+ * @brief Funcion que recorre un "diccionario", escribe en un documento de texto la primera palabra cuya frecuencia sea mayor
+ * y elimina ese elemento del diccionario
+ * @param dic Vector de tipo "Palabra"
+ * @param archivoWrite Puntero a "ofstream"
+ * @return vector<Palabra>
+ */
+vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite);

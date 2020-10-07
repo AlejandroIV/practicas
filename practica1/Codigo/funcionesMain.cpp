@@ -99,13 +99,13 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
         
         //... por lo que falta de contar la ultima palabra
 
-        /* Cuando se agrega un salto de linea en el documento de texto, entonces la linea tendra al final un caracter nulo
-        por lo tanto es necesario eliminar ese espacio haciendo modificaciones en la llamada al metodo "setPalabra" */
-
         // Manda a llamar a la funcion para convertir el arreglo de caracteres a string
         auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 1) - auxInicio)));
 
         /*
+        // Cuando se agrega un salto de linea en el documento de texto, entonces la linea tendra al final un caracter nulo
+        // por lo tanto es necesario eliminar ese espacio haciendo modificaciones en la llamada al metodo "setPalabra"
+
         //auxPtrArray = linea.getCharArray();
         contAux = auxInicio;  // Variable que se usara en el bucle "while"
 
@@ -120,7 +120,7 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
         if(flagAux)  {
             // Como hay un carater nulo al final de la palabra, entonces se le debe restar 2 a "auxFinal"
             // Manda a llamar a la funcion para convertir el arreglo de caracteres a string
-            auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 1) - auxInicio)));
+            auxPalabra.setPalabra(auxPalabra.charArrayToString(linea.getCharArray(auxInicio), ((auxFinal - 2) - auxInicio)));
         }
         else  {
             // Sino hay caracter nulo al final de la palabra, manda a llamar a la funcion con los mismos argumentos
@@ -176,4 +176,33 @@ int sumaFrecuencias(vector<Palabra>* dic)
     }
 
     return sum;
+}
+
+vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite)
+{
+    // Declaracion de variables auxiliares
+    int auxRecorrido = 0;
+    int auxIndice = 0;
+    int auxMayor = 0;
+
+    // Bucle que recorrera todo el "diccionario"
+    for(Palabra p : dic)  {
+        // Ejecutara las sentencias del cuerpo de la condicional si la frecuencia de la palabra es mayor a la anterior
+        if(p.getFrecuencia() > auxMayor)  {
+            auxMayor = p.getFrecuencia();  // El valor mayor visto hasta el momento
+            auxIndice = auxRecorrido;  // El indice de la palabra con la frecuencia mayor vista hasta el momento
+        }
+
+        // Es para irnos ubicando en cada indice del "diccionario"
+        auxRecorrido++;
+    }
+
+    // Escribira en el documento de texto la "Palabra" con mayor frecuencia vista hasta el momento
+    archivoWrite << "Palabra: " << dic[auxIndice].getPalabra() << "    -    Frecuencia: " << dic[auxIndice].getFrecuencia() << "\n";
+
+    // Elimina el elemento que se agrego al documento de texto
+    dic.erase(dic.begin() + auxIndice);
+
+    // Regresa el "diccionario" con un caracter menos
+    return dic;
 }

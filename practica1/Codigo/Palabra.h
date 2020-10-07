@@ -11,11 +11,11 @@ class Palabra
     
     public:
         /**
-         * @brief Constructor de la clase "LineaTexto"
+         * @brief Constructor de la clase "Palabra"
          */ 
         Palabra();
         /**
-         * @brief Constructor de la clase "LineaTexto"
+         * @brief Constructor de la clase "Palabra"
          * @param charArray Puntero a "char"
          * @param final Cantidad de caracteres que hay en la palabra
          */ 
@@ -28,12 +28,12 @@ class Palabra
         void setFrecuencia(int frecuencia);
         /**
          * @brief Metodo getter de la variable de instancia "frecuencia" del objeto
-         * @return El numero de frecuencia
+         * @return int
          */ 
         int getFrecuencia();
         /**
          * @brief Metodo setter de la variable de instancia "palabra" del objeto
-         * @param palabra palabra de tipo "string"
+         * @param palabra Palabra de tipo "string"
          */ 
         void setPalabra(std::string palabra);
         /**
@@ -49,7 +49,7 @@ class Palabra
         /**
          * @brief Metodo para convertir un arreglo de caracteres a una cadena
          * @param a Puntero a "char"
-         * @param final Limite al que se quiere llegar
+         * @param final Cantidad de caracteres que hay en la palabra
          * @return std::string
          */ 
         std::string charArrayToString(char* a, int final);
