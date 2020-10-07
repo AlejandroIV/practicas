@@ -55,39 +55,32 @@ std::string Palabra::charArrayToString(char* a, int final)
             else  {
                 s += *(a + i);  // Va concatenando las letras para formar una palabra
             }
-        }// Condicional para cambiar las letras que tienen acento a letras sin acento
+        }
         else  {
+            // Switch para atender casos especiales
             switch(*(a + i))  {
-                case -95:  // á
+                case -95: case -127:  // á Á
                     s += 'a';
                     break;
-                case -87:  // é
+                case -87: case -119:  // é É
                     s += 'e';
                     break;
-                case -83:  // í
+                case -83: case -115:  // í Í
                     s += 'i';
                     break;
-                case -77:  // ó
+                case -77: case -109:  // ó Ó
                     s += 'o';
                     break;
-                case -70:  // ú
+                case -70: case -102:  // ú Ú
                     s += 'u';
                     break;
-                case -127:  // Á
-                    s += 'a';
+                /*case -61:  // ñ
+                    s += 'n';
+                    s += 'h';
                     break;
-                case -119:  // É
-                    s += 'e';
-                    break;
-                case -115:  // Í
-                    s += 'i';
-                    break;
-                case -109:  // Ó
-                    s += 'o';
-                    break;
-                case -102:  // Ú
+                case -68:  // ü
                     s += 'u';
-                    break;
+                    break;*/
             }
         }
         
