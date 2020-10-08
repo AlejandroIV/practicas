@@ -4,7 +4,7 @@
 #include<vector>
 #include<fstream>
 #include<cstring>
-#include <algorithm>
+#include<algorithm>
 #include"LineaTexto.h"
 #include"Palabra.h"
 

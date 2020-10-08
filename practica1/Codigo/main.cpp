@@ -7,8 +7,8 @@ int main()
 
     // Declaracion de variable para almacenar el nombre del archivo
     char c[20];
-    // Pide al usuario el nombre del archivo
-    cout << "Escribe el nombre del archivo con extension .'txt': ";
+    // Pide al usuario el nombre del archivo (input)
+    cout << "Escribe el nombre del archivo de entrada con extension .'txt': ";
     cin >> c;
 
     // Declaracion de variable que contendra el vinculo al archivo de lectura
@@ -33,7 +33,11 @@ int main()
     // Declaracion de variable que contendra el vinculo al archivo de escritura
     ofstream archivoEscribir;
 
-    archivoEscribir.open("palabras_frecuencias.txt", ios::out);  // Abre el archivo en modo escritura para escribir las palabras y su frecuencia
+    // Pide al usuario el nombre del archivo (output)
+    cout << "Escribe el nombre del archivo de salida con extension .'txt': ";
+    cin >> c;
+
+    archivoEscribir.open(c, ios::out);  // Abre el archivo en modo escritura para escribir las palabras y su frecuencia
 
     // Condicional para comprobar si se abrio el archivo de texto adecuadamente
     if(archivoEscribir.fail())  {
