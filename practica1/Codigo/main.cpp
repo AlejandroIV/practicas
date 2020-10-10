@@ -1,3 +1,13 @@
+/**
+ * 
+ * Codigo en C++ de programa que lee un archivo de texto y escribe en otro archivo de
+ * texto las frecuencias de las palabras ordenadas de forma descendente en una tabla.
+ * 
+ * @author Alejandro Delgado Rivera <AlejandroDR_IV@Outlook.com>
+ * @version 1.0
+ * @date 10/10/2020
+ */ 
+
 #include"funcionesMain.h"
 
 int main()
