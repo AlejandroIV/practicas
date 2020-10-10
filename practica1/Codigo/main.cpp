@@ -51,7 +51,7 @@ int main()
 
     // Pide al usuario el nombre del archivo (output)
     cout << "Escribe el nombre del archivo de salida con extension .'txt' (limite de caracteres: 25)" << endl;
-    cout << "Si no sabe que escribir, entonces digite '0' y presione enter, y el programa escribira las frecuencias de las palabras en el documento 'frecuencias_palabras.txt' si es que existe" << endl;
+    cout << "Si no sabe que escribir, entonces digite '0' y presione enter, y el programa escribira las frecuencias de las palabras en el documento 'frecuencias_palabras.txt'" << endl;
     cin >> c;
     // Condicional para comprobar el nombre del documento dado por el usuario
     if(c[0] == '0')  {
