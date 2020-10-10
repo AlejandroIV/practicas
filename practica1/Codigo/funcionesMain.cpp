@@ -1,10 +1,10 @@
 #include"FuncionesMain.h"
 
-void caracterFinal()
+void caracterFinal(char archivo[20])
 {
     // Puntero se ubica en el final del archivo para agregar un caracter nulo que es necesario
     FILE *archPtr;
-    archPtr = fopen("ejemplo.txt", "a");
+    archPtr = fopen(archivo, "a");
     // Condicional para comprobar que el fichero se abrio correctamente
     if(archPtr == NULL)  {
         printf("Error! No se pudo abrir el archivo\n");
@@ -176,6 +176,18 @@ int sumaFrecuencias(vector<Palabra>* dic)
     return sum;
 }
 
+void empiezaTabla(ofstream &archivoWrite)
+{
+    escribeLinea(archivoWrite);
+    archivoWrite << left << "|" << setw(20) << "PALABRA"  << setw(21) << "|FRECUENCIA" << "|\n";
+    escribeLinea(archivoWrite);
+}
+
+void escribeLinea(ofstream &archivoWrite)
+{
+    archivoWrite << "+--------------------+--------------------+\n";
+}
+
 vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite)
 {
     // Declaracion de variables auxiliares
@@ -196,7 +208,7 @@ vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite)
     }
 
     // Escribira en el documento de texto la "Palabra" con mayor frecuencia vista hasta el momento
-    archivoWrite << "Palabra: " << dic[auxIndice].getPalabra() << "    -    Frecuencia: " << dic[auxIndice].getFrecuencia() << "\n";
+    archivoWrite << left << "|" << setw(20) << dic[auxIndice].getPalabra() << "|" << setw(20) << dic[auxIndice].getFrecuencia() << "|\n";
 
     // Elimina el elemento que se agrego al documento de texto
     dic.erase(dic.begin() + auxIndice);
