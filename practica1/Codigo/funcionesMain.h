@@ -1,3 +1,11 @@
+/**
+ * @file FuncionesMain.h
+ *
+ * @author Alejandro Delgado Rivera <AlejandroDR_IV@Outlook.com>
+ * @version 1.0
+ * @date 10/10/2020
+ */
+
 #pragma once
 
 // incluye todas las bibliotecas necesarias para el proyecto
@@ -20,7 +28,7 @@ void caracterFinal(char archivo[20]);
  * @param archivoRead Puntero a "ifstream"
  * @return vector<Palabra>
  */ 
-vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead);
+void creaVectorFrecuencias(ifstream &archivoRead, vector<Palabra> &diccionario);
 /**
  * @brief Funcion que imprime las frecuencias de un "diccionario"
  * @param dic Puntero a un vector de tipo "Palabra"
@@ -47,4 +55,4 @@ void escribeLinea(ofstream &archivoWrite);
  * @param archivoWrite Puntero a "ofstream"
  * @return vector<Palabra>
  */
-vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite);
+void escribeMayor(vector<Palabra>& dic, ofstream &archivoWrite);

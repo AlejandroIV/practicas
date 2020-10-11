@@ -1,3 +1,13 @@
+/**
+ * @file FuncionesMain.cpp
+ * 
+ * Implementacion de las funciones principales para usar con la biblioteca "FuncionesMain.h".
+ * 
+ * @author Alejandro Delgado Rivera <AlejandroDR_IV@Outlook.com>
+ * @version 1.0
+ * @date 10/10/2020
+ */ 
+
 #include"FuncionesMain.h"
 
 void caracterFinal(char archivo[20])
@@ -15,7 +25,7 @@ void caracterFinal(char archivo[20])
     fclose(archPtr);  // Cierra el fichero
 }
 
-vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
+void creaVectorFrecuencias(ifstream &archivoRead, vector<Palabra> &diccionario)
 {
     // Declaracion e iniciacion de variables auxiliares
     int contAux = 0;  // Auxiliares para el bucle "for"
@@ -33,9 +43,6 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
 
     // Declaracion de objeto "linea"
     LineaTexto linea;
-
-    // Declaracion de un vector llamado "diccionario" que almacenara las palabras y su frecuencia
-    vector<Palabra> diccionario;
 
     // El bucle recorrera todo el archivo
     while(!archivoRead.eof())  {
@@ -150,15 +157,13 @@ vector<Palabra> creaVectorFrecuencias(ifstream &archivoRead)
         contAux = 0;
         flagAux = false;
     }
-
-    return diccionario;
 }
 
 void imprimeFrecuencias(vector<Palabra>* dic)
 {
     // Bucle que recorrera todo el diccionario e imprimira cada palabra y su frecuencia
     for(Palabra p : *(dic))  {
-        cout << "Palabra: " << p.getPalabra() << " - Frecuencia: " << p.getFrecuencia() << endl;
+        cout << left << "Palabra: " << setw(30) << p.getPalabra() << "Frecuencia: " << setw(30) << p.getFrecuencia() << endl;
     }
 }
 
@@ -188,7 +193,7 @@ void escribeLinea(ofstream &archivoWrite)
     archivoWrite << "+--------------------+--------------------+\n";
 }
 
-vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite)
+void escribeMayor(vector<Palabra> &dic, ofstream &archivoWrite)
 {
     // Declaracion de variables auxiliares
     int auxRecorrido = 0;
@@ -212,7 +217,4 @@ vector<Palabra> escribeMayor(vector<Palabra> dic, ofstream &archivoWrite)
 
     // Elimina el elemento que se agrego al documento de texto
     dic.erase(dic.begin() + auxIndice);
-
-    // Regresa el "diccionario" con un elemento menos
-    return dic;
 }

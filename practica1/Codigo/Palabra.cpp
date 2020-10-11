@@ -1,3 +1,13 @@
+/**
+ * @file Palabra.cpp
+ * 
+ * Implementacion de la clase "Palabra" para usar con la biblioteca "Palabra.h".
+ * 
+ * @author Alejandro Delgado Rivera <AlejandroDR_IV@Outlook.com>
+ * @version 1.0
+ * @date 10/10/2020
+ */ 
+
 #include"Palabra.h"
 
 // Constructores

@@ -1,4 +1,5 @@
 /**
+ * @file main.cpp
  * 
  * Codigo en C++ de programa que lee un archivo de texto y escribe en otro archivo de
  * texto las frecuencias de las palabras ordenadas de forma descendente en una tabla.

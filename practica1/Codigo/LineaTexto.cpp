@@ -1,3 +1,13 @@
+/**
+ * @file LineaTexto.cpp
+ * 
+ * Implementacion de la clase "LineaTexto" para usar con la biblioteca "LineaTexto.h".
+ * 
+ * @author Alejandro Delgado Rivera <AlejandroDR_IV@Outlook.com>
+ * @version 1.0
+ * @date 10/10/2020
+ */ 
+
 #include"LineaTexto.h"
 
 using namespace std;
