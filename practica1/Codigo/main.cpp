@@ -38,9 +38,12 @@ int main()
     }
 
     // Iniciacion del diccionario que almacenara las palabras de documento y su respectiva frecuencia
-    vector<Palabra> diccionario = creaVectorFrecuencias(archivoLeer);
+    vector<Palabra> diccionario;
+    // Manda a llamar a la funcion para crear el diccionario con las palabras y su respectiva frecuencia
+    creaVectorFrecuencias(archivoLeer, diccionario);
     archivoLeer.close();  // Cierra el archivo de lectura
 
+    // Manda a llamar a la funcion para imprimir las palabras y su respectiva frecuencia
     //imprimeFrecuencias(&diccionario);
 
     // Imprime la cantidad de palabras que hay en el "diccionario"
@@ -72,7 +75,7 @@ int main()
     // Bucle que se repetira mientras hayan elementos en el "diccionario"
     while(!(diccionario.empty()))  {
         // Manda a llamar a la funcion para ir escribiendo las palabras y su frecuencia, e irlas borrando del "diccionario"
-        diccionario = escribeMayor(diccionario, archivoEscribir);
+        escribeMayor(diccionario, archivoEscribir);
     }
 
     // Agrega una linea de 43 caracteres al final de la tabla
